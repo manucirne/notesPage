@@ -26,5 +26,13 @@ body,h1,h2,h3,h4,h5,h6 {
 	margin:auto;
 }
 .class6{
-	width:50px
+	width:50px;
+}
+.margemdecima{
+	padding-top: 30px;
+}
+.container{
+	margin: 40px;
+	border-style: inset;
+
 }
