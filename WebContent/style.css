@@ -1,5 +1,6 @@
 body,h1,h2,h3,h4,h5,h6 {
 	font-family: "Karma", sans-serif
+	
 }
 .w3-bar-block .w3-bar-item {
 	padding:20px
@@ -34,5 +35,33 @@ body,h1,h2,h3,h4,h5,h6 {
 .container{
 	margin: 40px;
 	border-style: inset;
-
 }
+.mudarcor{
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.mudarcor .mudarcortext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.mudarcor:hover .mudarcortext {
+    visibility: visible;
+}
+
+
+
+
+
+

@@ -5,85 +5,105 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+            
+
+
 <link rel="stylesheet" href="style.css">
 
 <body>
 
-<!-- Sidebar (hidden by default) -->
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left class1"  id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()"
-  class="w3-bar-item w3-button">Close Menu</a>
-  <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
-</nav>
-
-<!-- Top menu -->
-<div class="w3-top">
-  <div class="w3-white w3-xlarge class2" >
-    <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-button w3-right w3-padding-16">Criar Nova Nota</div>
-    <div class="w3-button w3-padding-16">Minhas Notas</div>
+<!-- Barra de Navegacao -->
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">&nbsp; Logo</a>
+    <ul id="nav" class="right hide-on-med-and-down">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button class="btn waves-effect waves-light material-icons" type="submit" name="action">search</button></li> 
+      <li>  &nbsp; &nbsp; &nbsp; &nbsp;  </li>    
+      <li><a href="#">Sass</a></li>
+      <li><a href="#">Components</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
   </div>
-</div>
+</nav>
+        
+
   
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding class3">
 
-  <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16" id="food">
-    <div class="container w3-row-padding">
-    	<form action="adicionarNota">
-      		<br><input type="text" name="nota" placeholder="Digite sua nota"><br>
-      		<input type="submit" value="Submit">
-      	</form>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>Let Me Tell You About This Steak</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>Cherries, interrupted</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      <p>What else?</p>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>All I Need Is a Popsicle</h3>
-      <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>Salmon For Your Skin</h3>
-      <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>The Perfect Sandwich, A Real Classic</h3>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-    <div class="container w3-row-padding">
-      <h3>Le French</h3>
-      <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-  </div>
+  <!-- First Notes Grid-->
+  <div class="w3-row-padding w3-padding-16">
+    <div class="row">
+     <div class="col s12 ">
+       <div class="card darken-1">
+        <div class="card-content blue-text">
+          <form action="adicionarNota">
+            <div class="input-field col s12">
+              <input id="titulo" type="text">
+              <label for="titulo" size="200%">Título</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="nota" type="text">
+              <label for="nota">Nota</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+          </form>
+        </div>
+       </div>
+     </div>
+   </div>
+    <div class="row">
+	   <div class="col s12 ">
+	     <div class="card darken-1">
+	       <div class="card-content blue-text">
+	         <span class="card-title">Card Title</span>
+	         <p>I am a very simple card. I am good at containing small bits of information.
+	          I am convenient because I require little markup to use effectively.</p>
+	       </div>
+	       <div class="card-action">
+	         <input type="color" name="action">
+	       </div>
+	     </div>
+	   </div>
+	 </div>
+            
+    <div class="row">
+     <div class="col s12 ">
+       <div class="card darken-1 hoverable">
+         <div class="card-content ">
+           <span class="card-title">Card Title</span>
+           <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+         </div>
+         <div class="card-action">
+           <a href="#">Change your card color</a><input type="color" name="action">
+         </div>
+       </div>
+     </div>
+   </div>
 
+   <div class="row">
+     <div class="col s12 ">
+       <div class="card darken-1">
+         <div class="card-content">
+           <span class="card-title">Card Title</span>
+           <p>I am a very simple card. I am good at containing small bits of information.
+            I am convenient because I require little markup to use effectively.</p>
+         </div>
+         <div class="card-action">
+           <a href="#">Change your card color</a>
+         </div>
+       </div>
+     </div>
+   </div>
 
-
-<!-- End page content -->
 </div>
 
-<script>
-
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-}
-</script>
 
 </body>
 </html>
