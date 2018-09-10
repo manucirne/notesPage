@@ -24,7 +24,7 @@
     <a href="#" >&nbsp;<img src="logoNoteNome.png" class="logo"></a>
     <ul id="nav" class="right hide-on-med-and-down">
       <li><input type="search" placeholder="Search"></li>
-      <li><button class="btn waves-effect waves-light material-icons indigo darken-3" type="submit" name="action">search</button></li> 
+      <li><button class="btn waves-effect waves-light material-icons indigo darken-3" type="submit">search</button></li> <!-- name="action" -->
       <li>  &nbsp; &nbsp; &nbsp; &nbsp;  </li>    
       <li><a href="#">Sass</a></li>
       <li><a href="#">Components</a></li>
@@ -44,7 +44,7 @@
      <div class="col s12 ">
        <div class="card darken-1">
         <div class="card-content blue-text">
-          <form action="/adicionarNota" method="post">
+          <form action="adicionarNota" method="post">
             <div class="input-field col s12">
               <input id="titulo" name="titulo" type="text">
               <label for="titulo">Título</label>
