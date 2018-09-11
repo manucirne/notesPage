@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="br.edu.insper.*,java.util.*,java.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <title>Nome da Página</title>
@@ -17,6 +20,7 @@
 <link rel="stylesheet" href="style.css">
 
 <body class="yellow lighten-5">
+<jsp:useBean id="dao" class="br.edu.insper.DAO"/>
 
 <!-- Barra de Navegacao -->
 <nav>
@@ -46,8 +50,9 @@
         <div class="card-content blue-text">
           <form action="adicionarNota" method="post">
             <div class="input-field col s12">
-              <input id="titulo" name="titulo" type="text">
-              <label for="titulo">Título</label>
+            	<input id="id" name="id" type="number" style="display:none">
+              	<input id="titulo" name="titulo" type="text">
+              	<label for="titulo">Título</label>
             </div>
             <div class="input-field col s12">
               <textarea id="nota" name="nota" class="materialize-textarea"></textarea>
@@ -60,59 +65,24 @@
        </div>
      </div>
     </div>
-    <%@ page import="br.edu.insper.*,java.util.*,java.*" %>
-    <% DAO dao = new DAO();
-		List<Notas> notas = dao.getLista();   		  
-        for (Notas nota : notas){%>
-			<tr>
-				<td><%= nota.getTitulo() %></td>
-				<td><%= nota.getNota() %></td>
-			</tr>
-	<%  } %>
-    <div class="row">
-	   <div class="col s12 ">
-	     <div class="card darken-1">
-	       <div class="card-content blue-text">
-	         <span class="card-title">Card Title</span>
-	         <p>I am a very simple card. I am good at containing small bits of information.
-	          I am convenient because I require little markup to use effectively.</p>
-	       </div>
-	       <div class="card-action">
-	         <input type="color" name="action">
-	       </div>
-	     </div>
-	   </div>
-	 </div>
-            
-    <div class="row">
-     <div class="col s12 ">
-       <div class="card darken-1 hoverable">
-         <div class="card-content ">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-         </div>
-         <div class="card-action">
-           <a href="#">Change your card color</a><input type="color" name="action">
-         </div>
-       </div>
-     </div>
-   </div>
-
-   <div class="row">
-     <div class="col s12 ">
-       <div class="card darken-1">
-         <div class="card-content">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-         </div>
-         <div class="card-action">
-           <a href="#">Change your card color</a>
-         </div>
-       </div>
-     </div>
-   </div>
+    <c:forEach var="nota" items="${dao.lista}" varStatus="id">
+	    <div class="row">
+		   <div class="col s12 ">
+		     <div class="card darken-1 hoverable">
+		       <div class="card-content">
+		         <span class="card-title">${nota.titulo}</span>
+					 <p>${nota.nota}</p>
+		       </div>
+		       <div class="card-action">
+		         <input type="color" name="action">
+		         <form action="deletarNota" method="post">
+		         	<button class="btn waves-effect waves-light material-icons indigo darken-3" type="submit">delete</button>
+		         </form>
+		       </div>
+		     </div>
+		   </div>
+		 </div>
+	 </c:forEach>
   </div>
 </div>
 

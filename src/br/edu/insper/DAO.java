@@ -36,7 +36,7 @@ public class DAO {
 		
 		try {
 			PreparedStatement stmt = connection.
-					prepareStatement("SELECT * FROM Nota");
+					prepareStatement("SELECT * FROM Notas");
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
@@ -44,7 +44,7 @@ public class DAO {
 				nota.setId(rs.getInt("id"));
 				nota.setTitulo(rs.getString("titulo"));
 				nota.setNota(rs.getString("nota"));
-				nota.setCor(rs.getString(""));
+				nota.setCor(rs.getString("cor"));
 				notas.add(nota);
 			}
 			
