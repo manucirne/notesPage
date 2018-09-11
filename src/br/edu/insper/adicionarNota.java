@@ -38,12 +38,7 @@ public class adicionarNota extends HttpServlet {
     	nota.setNota(nova_nota);
     	dao.adiciona(nota);
     	
-    	out.println("<html>");
-    	out.println("<body>");
-    	out.println(nova_nota);
-    	out.println(novo_titulo);
-    	out.println("</body>");
-    	out.println("</html>");
+    	request.getRequestDispatcher("Notas.jsp").forward(request, response);
     	
     	
     }

@@ -5,6 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
 <title>Nome da Página</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +15,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-        
+
 <link rel="stylesheet" href="style.css">
 
+            
+
+</head>
 <body class="yellow lighten-5">
 <jsp:useBean id="dao" class="br.edu.insper.DAO"/>
 
@@ -33,63 +38,33 @@
     </ul>
   </div>
 </nav>
-        
-
-  
-<!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding class3">
-
   <!-- First Notes Grid-->
   <div class="w3-row-padding w3-padding-16">
     <div class="row">
-     <div class="col s12 ">
+     <div class="col s12">
        <div class="card darken-1">
         <div class="card-content blue-text">
-          <form action="adicionarNota" method="post">
+          <form action="editarNota" method="post">
             <div class="input-field col s12">
-            	<input id="id" name="id" type="number" style="display:none">
-              	<input id="titulo" name="titulo" type="text">
+            	<%String titulo = request.getParameter("titulo");%>
+            	<%String nota = request.getParameter("nota");%>
+            	<%String id = request.getParameter("id");%>
+            	<input id="id" name="id" type="number" style="display:none" value="<%=id%>" >
+              	<input id="titulo" name="titulo" type="text" value="<%=titulo%>">
               	<label for="titulo">Título</label>
             </div>
             <div class="input-field col s12">
-              <textarea id="nota" name="nota" class="materialize-textarea"></textarea>
+              <textarea id="nota" name="nota" class="materialize-textarea"><%=nota%></textarea>
               <label for="nota">Nota</label>
             </div>
-            <button class="btn waves-effect waves-light indigo darken-3
-            " type="submit">Submit</button>
+            <button class="btn waves-effect waves-light indigo darken-3" type="submit">Submit</button>
           </form>
         </div>
        </div>
      </div>
     </div>
-    <c:forEach var="nota" items="${dao.lista}" varStatus="id">
-	    <div class="row">
-		   <div class="col s12 ">
-		     <div class="card darken-1 hoverable">
-		       <div class="card-content">
-		         <span class="card-title">${nota.titulo}</span>
-					 <p>${nota.nota}</p>
-		       </div>
-		       <div class="card-action">
-		         <input type="color" name="action">
-		         <form action="deletarNota" method="post">
-		         	<input id="id" name="id" type="number" value="${nota.id}" style="display:none">
-		         	<button class="btn waves-effect waves-light material-icons indigo darken-3" type="submit">delete</button>
-		         </form>
-		         <form action="Editar.jsp">
-		         	<input id="id" name="id" type="number" value="${nota.id}" style="display:none">
-		         	<input id="titulo" name="titulo" type="text" value="${nota.titulo}" style="display:none">
-		         	<input id="nota" name="nota" type="text" value="${nota.nota}" style="display:none">
-		         	<button class="btn waves-effect waves-light material-icons indigo darken-3" type="submit">edit</button>
-		         </form>
-		       </div>
-		     </div>
-		   </div>
-		 </div>
-	 </c:forEach>
+   </div>
   </div>
-</div>
-
-
 </body>
 </html>
