@@ -30,11 +30,10 @@ public class deletarNota extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
     	PrintWriter out = response.getWriter ();
     	DAO dao = new DAO();
-    	
-    	String ids = request.getParameter("id");
-    	int id = Integer.parseInt(ids);
+  
+    	int id = Integer.parseInt(request.getParameter("id"));
+    	System.out.println(id);
     	dao.remove(id);
-    	
     	out.println("<html>");
     	out.println("<body>");
     	out.println("Deletou");

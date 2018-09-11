@@ -76,6 +76,7 @@
 		       <div class="card-action">
 		         <input type="color" name="action">
 		         <form action="deletarNota" method="post">
+		         	<input id="id" name="id" type="number" value="${nota.id}" style="display:none">
 		         	<button class="btn waves-effect waves-light material-icons indigo darken-3" type="submit">delete</button>
 		         </form>
 		       </div>
