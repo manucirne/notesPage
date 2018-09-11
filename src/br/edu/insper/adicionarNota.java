@@ -29,13 +29,17 @@ public class adicionarNota extends HttpServlet {
 	 */
     protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
     	PrintWriter out = response.getWriter ();
+    	DAO dao = new DAO();
     	
     	String nova_nota = request.getParameter("nota");
     	String novo_titulo = request.getParameter("titulo");
+    	Notas nota = new Notas();
+    	nota.setTitulo(novo_titulo);
+    	nota.setNota(nova_nota);
+    	dao.adiciona(nota);
     	
     	out.println("<html>");
     	out.println("<body>");
-    	out.println("oi");
     	out.println(nova_nota);
     	out.println(novo_titulo);
     	out.println("</body>");
@@ -55,18 +59,7 @@ public class adicionarNota extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter out = response.getWriter ();
-    	
-    	String nova_nota = request.getParameter("nota");
-    	String novo_titulo = request.getParameter("titulo");
-    	
-    	out.println("<html>");
-    	out.println("<body>");
-    	out.println("oi");
-    	out.println(nova_nota);
-    	out.println(novo_titulo);
-    	out.println("</body>");
-    	out.println("</html>");
+
 	}
 
 }

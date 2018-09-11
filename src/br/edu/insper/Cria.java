@@ -22,7 +22,7 @@ public class Cria extends HttpServlet {
 	PrintWriter out = response.getWriter();
 	out.println("<html><body>");
 	out.println("<form method='post'>");
-	out.println("Tituo: <input type='text' name='titulo'><br>");
+	out.println("Titulo: <input type='text' name='titulo'><br>");
 	out.println("Nota: <input type='text' name='nota' step='0.01'><br>");
 	out.println("<input type='submit' value='Submit'>");
 	out.println("</form>");

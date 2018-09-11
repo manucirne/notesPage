@@ -78,7 +78,7 @@ public class DAO {
 			"(titulo,nota) values(?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1,nota.getTitulo());
-			stmt.setString(3,nota.getNota());
+			stmt.setString(2,nota.getNota());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

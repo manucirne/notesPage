@@ -60,6 +60,15 @@
        </div>
      </div>
     </div>
+    <%@ page import="br.edu.insper.*,java.util.*,java.*" %>
+    <% DAO dao = new DAO();
+		List<Notas> notas = dao.getLista();   		  
+        for (Notas nota : notas){%>
+			<tr>
+				<td><%= nota.getTitulo() %></td>
+				<td><%= nota.getNota() %></td>
+			</tr>
+	<%  } %>
     <div class="row">
 	   <div class="col s12 ">
 	     <div class="card darken-1">
