@@ -19,7 +19,7 @@ public class DAO {
 		 try {
 			Class.forName("com.mysql.jdbc.Driver");
 			 connection = DriverManager.getConnection(
-					 "jdbc:mysql://localhost/infinitynote", "root", "Ratoeira9804"); // MUDAR!!!!!!!!!!
+					 "jdbc:mysql://localhost/infinitynote", "root", "Manu_6006"); // MUDAR!!!!!!!!!!
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,6 +103,31 @@ public class DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+public int getId1() {
+		
+		int id = 0;
+		
+		try {
+			PreparedStatement stmt = connection.
+					prepareStatement("SELECT max(id) AS id FROM notas");
+			stmt.execute();
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				id = rs.getInt("id");
+				
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return id;
 	}
 	public void close() {
 			try {

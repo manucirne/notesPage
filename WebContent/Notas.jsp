@@ -45,7 +45,7 @@
      <div class="col s12 ">
        <div class="card darken-1">
         <div class="card-content hoverable">
-          <form action="adicionarNota" method="post">
+          <form action="adicionarNota" method="get">
             <div class="input-field col s12">
             	<input id="id" name="id" type="number" style="display:none">
               	<input id="titulo" name="titulo" type="text">
@@ -54,15 +54,11 @@
             <div class="input-field col s12">
               <textarea id="nota" name="nota" class="materialize-textarea"></textarea>
               <label for="nota">Nota</label>
-            </div>
+            </div>            
+         	<input type="color" value="${cor.cor}" name="cor" id = "cor">
             <button class="btn waves-effect waves-light orange darken-3
             " type="submit">Submit</button>
           </form>
-          <form action="adicionarCor" method="post">
-         	<input id="nota_id" name="nota_id" type="number" value="${nota.id}" style="display:none">
-         	<input type="color" value="${cor.cor}" name="cor">
-         	<button class="btn waves-effect waves-light orange darken-3" type="submit">Submit Color</button>
-         </form>
         </div>
        </div>
      </div>
