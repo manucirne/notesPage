@@ -44,7 +44,13 @@ public class DAO {
 				nota.setId(rs.getInt("id"));
 				nota.setTitulo(rs.getString("titulo"));
 				nota.setNota(rs.getString("nota"));
-				nota.setCor(rs.getString("cor"));
+				
+				// SELECT id FROM cor WHERE nota.id = cor.nota_id
+				// se der null coloca cor defaul
+				// se retornar coloca a cor encontrada
+				// setcor
+				
+				
 				notas.add(nota);
 			}
 			
@@ -106,5 +112,99 @@ public class DAO {
 				e.printStackTrace();
 			}
 		}
-	
+	public List<Cores> getListaCor() {
+		
+		List<Cores> cores = new ArrayList<Cores>();
+		
+		try {
+			PreparedStatement stmt = connection.
+					prepareStatement("SELECT * FROM cor");
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Cores cor = new Cores();
+				cor.setId(rs.getInt("id"));
+				cor.setIdNota(rs.getInt("nota_id"));
+				cor.setCor(rs.getString("cor"));
+				cores.add(cor);
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cores;
+	}
+public String getCor1(Integer id) {
+		
+		String cor = new String();
+		
+		try {
+			PreparedStatement stmt = connection.
+					prepareStatement("SELECT cor FROM cor WHERE nota_id = ?");
+			stmt.setLong(1,id);
+			stmt.execute();
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Cores cor1 = new Cores();
+				cor1.setCor(rs.getString("cor"));
+				cor = cor1.getCor();
+				
+			}
+			
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cor;
+	}
+	public void alteraCor(Cores cor) {
+		try {
+			String sql = "UPDATE cor SET " +
+					"cor=? WHERE nota_id=?";
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, cor.getCor());
+			stmt.setInt(2, cor.getIdNota());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void adicionaCor(Cores cor) {
+		try {
+			String sql = "INSERT INTO cor" +
+			"(nota_id,cor) values(?,?)";
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setInt(1,cor.getIdNota());
+			stmt.setString(2,cor.getCor());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void removeCor(Integer nota_id) {
+		try {
+			PreparedStatement stmt = connection
+			 .prepareStatement("DELETE FROM cor WHERE nota_id=?");
+			stmt.setLong(1, nota_id);
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}	
+
 }
+

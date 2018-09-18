@@ -21,7 +21,7 @@
 
 <!-- Barra de Navegacao -->
 <nav>
-  <div class="nav-wrapper orange hoverable">
+  <div class="nav-wrapper orange">
     <a href="#" >&nbsp;<img src="logoNoteNome.png" class="logo"></a>
     <ul id="nav" class="right hide-on-med-and-down">
       <li><input type="search" placeholder="Search"></li>
@@ -44,7 +44,7 @@
     <div class="row">
      <div class="col s12 ">
        <div class="card darken-1">
-        <div class="card-content">
+        <div class="card-content hoverable">
           <form action="adicionarNota" method="post">
             <div class="input-field col s12">
             	<input id="id" name="id" type="number" style="display:none">
@@ -58,6 +58,11 @@
             <button class="btn waves-effect waves-light orange darken-3
             " type="submit">Submit</button>
           </form>
+          <form action="adicionarCor" method="post">
+         	<input id="nota_id" name="nota_id" type="number" value="${nota.id}" style="display:none">
+         	<input type="color" value="${cor.getCor}" name="cor">
+         	<button class="btn waves-effect waves-light orange darken-3" type="submit">Submit Color</button>
+         </form>
         </div>
        </div>
      </div>
@@ -65,13 +70,17 @@
     <c:forEach var="nota" items="${dao.lista}" varStatus="id">
 	    <div class="row">
 		   <div class="col s12 ">
-		     <div class="card darken-1 hoverable">
-		       <div class="card-content">
+		     <div style = 'color:${cor.cor};' class="card hoverable">
+		     ${cor.getCor()}
+		       <div class="card-content corcard">
 		         <span class="card-title">${nota.titulo}</span>
 					 <p>${nota.nota}</p>
+					 <p>${cor.getCor()}</p>
 		       <div class="card-action wrap">
-		         <form>
-		         	<input type="color" name="action">
+		         <form action="editarCor">
+		         	<input id="nota_id" name="nota_id" type="number" value="${nota.id}" style="display:none">
+		         	<input type="color" value="${cor.cor}" name="cor">
+		         	<button class="btn waves-effect waves-light orange darken-3" type="submit">Submit Color</button>
 		         </form>
 		         <form  action="deletarNota" method="post">
 		         	<input id="id" name="id" type="number" value="${nota.id}" style="display:none">
