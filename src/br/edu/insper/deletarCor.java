@@ -69,7 +69,6 @@ public class deletarCor extends HttpServlet {
     	out.println("Deletou");
     	out.println("</body>");
     	out.println("</html>");
-
 	}
 
 }

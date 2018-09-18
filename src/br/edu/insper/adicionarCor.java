@@ -39,8 +39,6 @@ public class adicionarCor extends HttpServlet {
     	dao.adicionaCor(cor);
     	
     	request.getRequestDispatcher("Notas.jsp").forward(request, response);
-    	
-    	
     }
     
     

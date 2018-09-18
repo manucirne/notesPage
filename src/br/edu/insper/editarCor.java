@@ -38,7 +38,7 @@ public class editarCor extends HttpServlet {
     	cor.setIdNota(nota_id);
     	cor.setCor(nova_cor);
     	dao.alteraCor(cor);
-    	System.out.println(cor.getCor());
+    	System.out.println(dao.getCor1(nota_id));
     	
     	
     	String nextJSP = "/Notas.jsp";

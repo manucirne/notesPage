@@ -60,22 +60,23 @@
           </form>
           <form action="adicionarCor" method="post">
          	<input id="nota_id" name="nota_id" type="number" value="${nota.id}" style="display:none">
-         	<input type="color" value="${cor.getCor}" name="cor">
+         	<input type="color" value="${cor.cor}" name="cor">
          	<button class="btn waves-effect waves-light orange darken-3" type="submit">Submit Color</button>
          </form>
         </div>
        </div>
      </div>
     </div>
+    
+    
     <c:forEach var="nota" items="${dao.lista}" varStatus="id">
 	    <div class="row">
 		   <div class="col s12 ">
-		     <div style = 'color:${cor.cor};' class="card hoverable">
-		     ${cor.getCor()}
+		     <div style = 'background-color:${dao.getCor1(nota.id)};' class="card hoverable">
 		       <div class="card-content corcard">
 		         <span class="card-title">${nota.titulo}</span>
 					 <p>${nota.nota}</p>
-					 <p>${cor.getCor()}</p>
+					
 		       <div class="card-action wrap">
 		         <form action="editarCor">
 		         	<input id="nota_id" name="nota_id" type="number" value="${nota.id}" style="display:none">
