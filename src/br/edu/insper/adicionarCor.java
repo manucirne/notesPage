@@ -1,7 +1,7 @@
 package br.edu.insper;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +28,7 @@ public class adicionarCor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-    	PrintWriter out = response.getWriter ();
+    	//PrintWriter out = response.getWriter ();
     	DAO dao = new DAO();
     	
     	String nova_cor = request.getParameter("cor");

@@ -76,7 +76,7 @@
 		       <div class="card-action wrap">
 		         <form action="editarCor">
 		         	<input id="nota_id" name="nota_id" type="number" value="${nota.id}" style="display:none">
-		         	<input type="color" value="${cor.cor}" name="cor">
+		         	<input type="color" value="${cor.cor}" name="cor" id = "cor">
 		         	<button class="btn waves-effect waves-light orange darken-3" type="submit">Submit Color</button>
 		         </form>
 		         <form  action="deletarNota" method="post">
@@ -87,6 +87,7 @@
 		         	<input id="id" name="id" type="number" value="${nota.id}" style="display:none">
 		         	<input id="titulo" name="titulo" type="text" value="${nota.titulo}" style="display:none">
 		         	<input id="nota" name="nota" type="text" value="${nota.nota}" style="display:none">
+		         	<input id="cor" name="cor" type="text" value="${dao.getCor1(nota.id)}" style="display:none">
 		         	<button class="btn waves-effect waves-light material-icons orange darken-3" type="submit">edit</button>
 		         </form>
 		         </div>

@@ -1,7 +1,7 @@
 package br.edu.insper;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,7 +29,7 @@ public class editarCor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-    	PrintWriter out = response.getWriter ();
+    	//PrintWriter out = response.getWriter ();
     	DAO dao = new DAO();
     	
     	int nota_id = Integer.parseInt(request.getParameter("nota_id"));

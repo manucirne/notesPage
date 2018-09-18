@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 @WebServlet("/listaCor")
 public class ListaCor extends HttpServlet {
 	protected void service(HttpServletRequest request,

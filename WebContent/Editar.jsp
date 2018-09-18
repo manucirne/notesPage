@@ -38,18 +38,20 @@
     </ul>
   </div>
 </nav>
+<%String cor = request.getParameter("cor");%>
 <div class="w3-main w3-content w3-padding class3">
   <!-- First Notes Grid-->
   <div class="w3-row-padding w3-padding-16">
     <div class="row">
      <div class="col s12">
-       <div class="card darken-1">
+       <div class="card darken-1" style = "background-color:<%=cor%>">
         <div class="card-content blue-text">
           <form action="editarNota" method="post">
             <div class="input-field col s12">
             	<%String titulo = request.getParameter("titulo");%>
             	<%String nota = request.getParameter("nota");%>
             	<%String id = request.getParameter("id");%>
+            	
             	<input id="id" name="id" type="number" style="display:none" value="<%=id%>" >
               	<input id="titulo" name="titulo" type="text" value="<%=titulo%>">
               	<label for="titulo">Título</label>
@@ -58,6 +60,7 @@
               <textarea id="nota" name="nota" class="materialize-textarea"><%=nota%></textarea>
               <label for="nota">Nota</label>
             </div>
+            <input type="color" value="<%=cor%>" name="cor" id = "cor">
             <button class="btn waves-effect waves-light indigo darken-3" type="submit">Submit</button>
           </form>
         </div>
