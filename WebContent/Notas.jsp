@@ -23,14 +23,7 @@
 <nav>
   <div class="nav-wrapper orange">
     <a href="#" >&nbsp;<img src="logoNoteNome.png" class="logo"></a>
-    <ul id="nav" class="right hide-on-med-and-down">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button class="btn waves-effect waves-light material-icons orange darken-4" type="submit">search</button></li> <!-- name="action" -->
-      <li>  &nbsp; &nbsp; &nbsp; &nbsp;  </li>    
-      <li><a href="#">Sass</a></li>
-      <li><a href="#">Components</a></li>
-      <li><a href="#">JavaScript</a></li>
-    </ul>
+
   </div>
 </nav>
         
